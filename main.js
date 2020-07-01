@@ -23,8 +23,14 @@ const absoluteValues = function(numbers) {
 
   for (let i = 0; i < numbers.length; i++) {
     const number = numbers[i]
-    const absolute = number < 0 ? number * -1 : number;
-    absolutes.push(absolute);
+    if (number < 0) {
+      absolutes.push(number * -1);
+    } else {
+      absolutes.push(number);
+    }
+
+    // or, instead of an if/else, we could use Math.abs to get the absolute value:
+    // absolutes.push(Math.abs(numbers[i]));
   }
 
   return absolutes;
@@ -49,19 +55,22 @@ const changeToInitials = function(names) {
     const initial1 = name[0];
     const spaceIndex = name.indexOf(' ');
     const initial2 = name[spaceIndex + 1];
-    
+
     initialsList.push(initial1 + initial2);
 
+    // or, as a crazy one-liner
+    // initialsList.push(names[i][0] + names[i][names[i].indexOf(' ') + 1]);
 
-    // let initials = '';
-    // 
-    // for (let i = 0; i < name.length; i++) {
-    //   if (i === 0 || name[i - 1] === ' ') {
-    //     initials = initials + name[i].toUpperCase();
-    //   }
-    // }
-    // 
-    // initialsList.push(initials)
+    // for loop version
+  //   let initials = '';
+    
+  //   for (let i = 0; i < name.length; i++) {
+  //     if (i === 0 || name[i - 1] === ' ') {
+  //       initials = initials + name[i].toUpperCase();
+  //     }
+  //   }
+    
+  //   initialsList.push(initials)
   }
 
   return initialsList;
@@ -111,11 +120,13 @@ const add1ToLeft = function(numbers) {
   const with1Addeds = [];
   for (let i = 0; i < numbers.length; i++) {
     const stringifiedNumber = numbers[i].toString();
-    const stringWith1Added = stringifiedNumber[0] === '-'
-      ? '-1' + stringifiedNumber.slice(1)
-      : '1' + stringifiedNumber
-
-    with1Addeds.push(Number(stringWith1Added));
+    if (numbers[i] < 0) {
+      const stringWith1Added = '-1' + stringifiedNumber.slice(1)
+      with1Addeds.push(Number(stringWith1Added));
+    } else {
+      const stringWith1Added = '1' + stringifiedNumber;
+      with1Addeds.push(Number(stringWith1Added));
+    }
   }
 
   return with1Addeds;
