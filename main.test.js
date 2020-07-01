@@ -79,6 +79,13 @@ describe('upperCaseFirstLetters', () => {
   it(`lowercases the other letters of each name`, () => {
     expect(upperCaseFirstLetters(['cOlin', 'geNghis', 'mesUara', 'ginny', 'michael', 'pak', 'tenzin'])).toEqual(['Colin', 'Genghis', 'Mesuara', 'Ginny', 'Michael', 'Pak', 'Tenzin'])
   })
+
+  it(`doesn't modify the original array`, () => {
+    const originalNames = ['cOlin', 'geNghis', 'mesUara', 'ginny', 'michael', 'pak', 'tenzin'];
+    const names = ['cOlin', 'geNghis', 'mesUara', 'ginny', 'michael', 'pak', 'tenzin'];
+    upperCaseFirstLetters(names)
+    expect(names).toEqual(originalNames);
+  })
 })
 
 describe('changeToInitials', () => {
@@ -88,10 +95,10 @@ describe('changeToInitials', () => {
   })
 
   it(`doesn't modify the original array`, () => {
-    const originalNumbers = [-1, -3, 1000];
-    const numbers = [-1, -3, 1000];
-    absoluteValues(numbers)
-    expect(numbers).toEqual(originalNumbers);
+    const originalNames = ['Colin Jaffe', 'Mesuara Kaleziq']
+    const names = ['Colin Jaffe', 'Mesuara Kaleziq']
+    changeToInitials(names)
+    expect(names).toEqual(originalNames);
   })
 })
 
@@ -103,6 +110,13 @@ describe('doubleOdd', () => {
   it(`can handle negative numbers`, () => {
     expect(doubleOdd([-5, -1, -100, -2])).toEqual([-10, -2, -100, -2]);
   })
+
+  it(`doesn't modify the original array`, () => {
+    const originalNumbers = [-1, -3, 1000];
+    const numbers = [-1, -3, 1000];
+    doubleOdd(numbers)
+    expect(numbers).toEqual(originalNumbers);
+  })
 })
 
 describe('add1ToLeft', () => {
@@ -112,5 +126,12 @@ describe('add1ToLeft', () => {
 
   it(`can handle negative numbers`, () => {
     expect(add1ToLeft([-1, -50])).toEqual([-11, -150])
+  })
+
+  it(`doesn't modify the original array`, () => {
+    const originalNumbers = [-1, -3, 1000];
+    const numbers = [-1, -3, 1000];
+    add1ToLeft(numbers)
+    expect(numbers).toEqual(originalNumbers);
   })
 })
