@@ -8,6 +8,46 @@ const doubleAll = function(numbers) {
   return doubled;
 }
 
+const doubleOdd = function(numbers) {
+  const answers = [];
+
+  for (let i = 0; i < numbers.length; i++) {
+    // if version
+    if (numbers[i] % 2 === 1 || numbers[i] % 2 === -1) {
+      answers.push(numbers[i] * 2)
+    } else {
+      answers.push(numbers[i])
+    }
+    
+    // if and re-assignment version:
+    // let answer = numbers[i];
+    // if (answer % 2 === 1 || answer % 2 === -1) {
+    //   answer = answer * 2;
+    // }
+    // 
+    // answers.push(answer);
+
+    // Math.abs (absolute value) version
+    // if (Math.abs(numbers[i]) % 2 === 1) {
+    //   answers.push(numbers[i] * 2);
+    // } else {
+    //   answers.push(numbers[i]);
+    // }
+
+    // ternary version
+    // const answer = numbers[i] % 2 === 1 || numbers[i] % 2 === -1
+    //   ? numbers[i] * 2
+    //   : numbers[i];
+
+
+    // One-line math.abs and ternary version:
+    // answers.push(Math.abs(numbers[i] % 2) === 1 ? numbers[i] * 2 : numbers[i])
+
+  } // closes for loop
+
+  return answers;
+}
+
 const absoluteValues = function(numbers) {
   const absolutes = [];
 
@@ -42,6 +82,7 @@ const changeToInitials = function(names) {
 
     initialsList.push(initial1 + initial2);
 
+
     // alternate one-liner:
     // initialsList.push(names[i][0] + names[i][names[i].indexOf(' ') + 1])
 
@@ -51,45 +92,15 @@ const changeToInitials = function(names) {
 
     // for (let i = 0; i < name.length; i++) {
     //   if (i === 0 || name[i - 1] === ' ') {
-    //     initials += name[i];
-    //   }
-    // }
 
-    // initialsList.push(initials);
+  // for (let i = 0; i < names.length; i++) {
+  //   uppercasedNames.push(names[i][0].toUpperCase() + names[i].slice(1).toLowerCase())
+  // }
+  // 
+  // return uppercasedNames;
   }
 
   return initialsList;
-}
-
-const doubleOdd = function(numbers) {
-  const answers = [];
-
-  for (let i = 0; i < numbers.length; i++) {
-    // One-line math.abs version:
-    answers.push(
-      Math.abs(numbers[i] % 2) === 1
-        ? numbers[i] * 2
-        : numbers[i]
-      )
-
-    // Non-abs version:
-    // const answer = numbers[i] % 2 === 1 || numbers[i] % 2 === -1
-    //   ? numbers[i] * 2
-    //   : numbers[i];
-  
-    // answers.push(answer)
-
-    // if and re-assignment version:
-    // let answer = numbers[i];
-
-    // if (answer % 2 === 1 || answer % 2 === -1) {
-    //   answer = answer * 2;
-    // }
-
-    // answers.push(answer);
-  }
-
-  return answers;
 }
 
 const upperCaseFirstLetters = function(names) {
