@@ -1,10 +1,10 @@
 const {
   doubleAll,
-  absoluteValues,
   yelledGreetings,
+  absoluteValues,
+  upperCaseFirstLetters,
   changeToInitials,
   doubleOdd,
-  upperCaseFirstLetters,
   add1ToLeft,
 } = require('./main.js')
 
@@ -33,6 +33,20 @@ describe('doubleAll', () => {
   })
 })
 
+describe('yelledGreetings', () => {
+  it(`adds an exclamation point to the end of each string`, () => {
+    expect(yelledGreetings(['hello', 'there', 'you absolute fiend'])).toEqual(['hello!', 'there!', 'you absolute fiend!']);
+    expect(yelledGreetings(['hey', 'you'])).toEqual(['hey!', 'you!']);
+  })
+
+  it(`doesn't modify the original array`, () => {
+    const originalGreetings = ['hello', 'there', 'you absolute fiend'];
+    const greetings = ['hello', 'there', 'you absolute fiend'];
+    yelledGreetings(greetings)
+    expect(greetings).toEqual(originalGreetings);
+  })
+})
+
 describe('absoluteValues', () => {
   it(`returns numbers unchanged if they're positive`, () => {
     expect(absoluteValues([1, 3, 1000])).toEqual([1, 3, 1000]);
@@ -57,17 +71,13 @@ describe('absoluteValues', () => {
   })
 })
 
-describe('yelledGreetings', () => {
-  it(`adds an exclamation point to the end of each string`, () => {
-    expect(yelledGreetings(['hello', 'there', 'you absolute fiend'])).toEqual(['hello!', 'there!', 'you absolute fiend!']);
-    expect(yelledGreetings(['hey', 'you'])).toEqual(['hey!', 'you!']);
+describe('upperCaseFirstLetters', () => {
+  it(`uppercases the first letter of each name (as a string) in the given array`, () => {
+    expect(upperCaseFirstLetters(['colin', 'mesuara', 'genghis', 'pak', 'ginny', 'michael', 'tenzin'])).toEqual(['Colin', 'Mesuara', 'Genghis', 'Pak', 'Ginny', 'Michael', 'Tenzin'])
   })
 
-  it(`doesn't modify the original array`, () => {
-    const originalGreetings = ['hello', 'there', 'you absolute fiend'];
-    const greetings = ['hello', 'there', 'you absolute fiend'];
-    absoluteValues(greetings)
-    expect(greetings).toEqual(originalGreetings);
+  it(`lowercases the other letters of each name`, () => {
+    expect(upperCaseFirstLetters(['cOlin', 'geNghis', 'mesUara', 'ginny', 'michael', 'pak', 'tenzin'])).toEqual(['Colin', 'Genghis', 'Mesuara', 'Ginny', 'Michael', 'Pak', 'Tenzin'])
   })
 })
 
@@ -92,16 +102,6 @@ describe('doubleOdd', () => {
   
   it(`can handle negative numbers`, () => {
     expect(doubleOdd([-5, -1, -100, -2])).toEqual([-10, -2, -100, -2]);
-  })
-})
-
-describe('upperCaseFirstLetters', () => {
-  it(`uppercases the first letter of each name (as a string) in the given array`, () => {
-    expect(upperCaseFirstLetters(['colin', 'mesuara', 'genghis', 'pak', 'ginny', 'michael', 'tenzin'])).toEqual(['Colin', 'Mesuara', 'Genghis', 'Pak', 'Ginny', 'Michael', 'Tenzin'])
-  })
-
-  it(`lowercases the other letters of each name`, () => {
-    expect(upperCaseFirstLetters(['cOlin', 'geNghis', 'mesUara', 'ginny', 'michael', 'pak', 'tenzin'])).toEqual(['Colin', 'Genghis', 'Mesuara', 'Ginny', 'Michael', 'Pak', 'Tenzin'])
   })
 })
 
