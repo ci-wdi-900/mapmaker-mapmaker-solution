@@ -49,25 +49,19 @@ const changeToInitials = function(names) {
     const initial1 = name[0];
     const spaceIndex = name.indexOf(' ');
     const initial2 = name[spaceIndex + 1];
-
+    
     initialsList.push(initial1 + initial2);
 
 
-    // alternate one-liner:
-    // initialsList.push(names[i][0] + names[i][names[i].indexOf(' ') + 1])
-
-    // Internal for-loop version:
-    // const name = names[i];
     // let initials = '';
-
+    // 
     // for (let i = 0; i < name.length; i++) {
     //   if (i === 0 || name[i - 1] === ' ') {
-
-  // for (let i = 0; i < names.length; i++) {
-  //   uppercasedNames.push(names[i][0].toUpperCase() + names[i].slice(1).toLowerCase())
-  // }
-  //
-  // return uppercasedNames;
+    //     initials = initials + name[i].toUpperCase();
+    //   }
+    // }
+    // 
+    // initialsList.push(initials)
   }
 
   return initialsList;
@@ -143,6 +137,7 @@ if (typeof absoluteValues === 'undefined') {
 if (typeof upperCaseFirstLetters === 'undefined') {
   upperCaseFirstLetters = undefined;
 }
+
 if (typeof changeToInitials === 'undefined') {
   changeToInitials = undefined;
 }
