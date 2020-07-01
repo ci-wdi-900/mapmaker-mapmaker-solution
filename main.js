@@ -1,51 +1,21 @@
 const doubleAll = function(numbers) {
   const doubled = [];
-  
+
   for (let i = 0; i < numbers.length; i++) {
     doubled.push(numbers[i] * 2);
   }
-  
+
   return doubled;
 }
 
-const doubleOdd = function(numbers) {
-  const answers = [];
+const yelledGreetings = function(greetings) {
+  const yelled = [];
 
-  for (let i = 0; i < numbers.length; i++) {
-    // if version
-    if (numbers[i] % 2 === 1 || numbers[i] % 2 === -1) {
-      answers.push(numbers[i] * 2)
-    } else {
-      answers.push(numbers[i])
-    }
-    
-    // if and re-assignment version:
-    // let answer = numbers[i];
-    // if (answer % 2 === 1 || answer % 2 === -1) {
-    //   answer = answer * 2;
-    // }
-    // 
-    // answers.push(answer);
+  for (let i = 0; i < greetings.length; i++) {
+    yelled.push(greetings[i] + '!')
+  }
 
-    // Math.abs (absolute value) version
-    // if (Math.abs(numbers[i]) % 2 === 1) {
-    //   answers.push(numbers[i] * 2);
-    // } else {
-    //   answers.push(numbers[i]);
-    // }
-
-    // ternary version
-    // const answer = numbers[i] % 2 === 1 || numbers[i] % 2 === -1
-    //   ? numbers[i] * 2
-    //   : numbers[i];
-
-
-    // One-line math.abs and ternary version:
-    // answers.push(Math.abs(numbers[i] % 2) === 1 ? numbers[i] * 2 : numbers[i])
-
-  } // closes for loop
-
-  return answers;
+  return yelled;
 }
 
 const absoluteValues = function(numbers) {
@@ -60,14 +30,14 @@ const absoluteValues = function(numbers) {
   return absolutes;
 }
 
-const yelledGreetings = function(greetings) {
-  const yelled = [];
+const upperCaseFirstLetters = function(names) {
+  let uppercasedNames = [];
 
-  for (let i = 0; i < greetings.length; i++) {
-    yelled.push(greetings[i] + '!')
+  for (let i = 0; i < names.length; i++) {
+    uppercasedNames.push(names[i][0].toUpperCase() + names[i].slice(1).toLowerCase())
   }
 
-  return yelled;
+  return uppercasedNames;
 }
 
 const changeToInitials = function(names) {
@@ -96,21 +66,51 @@ const changeToInitials = function(names) {
   // for (let i = 0; i < names.length; i++) {
   //   uppercasedNames.push(names[i][0].toUpperCase() + names[i].slice(1).toLowerCase())
   // }
-  // 
+  //
   // return uppercasedNames;
   }
 
   return initialsList;
 }
 
-const upperCaseFirstLetters = function(names) {
-  let uppercasedNames = [];
+const doubleOdd = function(numbers) {
+  const answers = [];
 
-  for (let i = 0; i < names.length; i++) {
-    uppercasedNames.push(names[i][0].toUpperCase() + names[i].slice(1).toLowerCase())
-  }
+  for (let i = 0; i < numbers.length; i++) {
+    // if version
+    if (numbers[i] % 2 === 1 || numbers[i] % 2 === -1) {
+      answers.push(numbers[i] * 2)
+    } else {
+      answers.push(numbers[i])
+    }
 
-  return uppercasedNames;
+    // if and re-assignment version:
+    // let answer = numbers[i];
+    // if (answer % 2 === 1 || answer % 2 === -1) {
+    //   answer = answer * 2;
+    // }
+    //
+    // answers.push(answer);
+
+    // Math.abs (absolute value) version
+    // if (Math.abs(numbers[i]) % 2 === 1) {
+    //   answers.push(numbers[i] * 2);
+    // } else {
+    //   answers.push(numbers[i]);
+    // }
+
+    // ternary version
+    // const answer = numbers[i] % 2 === 1 || numbers[i] % 2 === -1
+    //   ? numbers[i] * 2
+    //   : numbers[i];
+
+
+    // One-line math.abs and ternary version:
+    // answers.push(Math.abs(numbers[i] % 2) === 1 ? numbers[i] * 2 : numbers[i])
+
+  } // closes for loop
+
+  return answers;
 }
 
 const add1ToLeft = function(numbers) {
@@ -130,10 +130,10 @@ const add1ToLeft = function(numbers) {
 
 module.exports = {
   doubleAll,
-  absoluteValues,
   yelledGreetings,
+  absoluteValues,
+  upperCaseFirstLetters,
   changeToInitials,
   doubleOdd,
-  upperCaseFirstLetters,
   add1ToLeft,
 }
