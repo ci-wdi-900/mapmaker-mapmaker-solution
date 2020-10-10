@@ -1,4 +1,4 @@
-const doubleAll = function(numbers) {
+ function doubleAll(numbers) {
   const doubled = [];
 
   for (let i = 0; i < numbers.length; i++) {
@@ -8,7 +8,7 @@ const doubleAll = function(numbers) {
   return doubled;
 }
 
-const yelledGreetings = function(greetings) {
+ function yelledGreetings(greetings) {
   const yelled = [];
 
   for (let i = 0; i < greetings.length; i++) {
@@ -18,7 +18,7 @@ const yelledGreetings = function(greetings) {
   return yelled;
 }
 
-const absoluteValues = function(numbers) {
+ function absoluteValues(numbers) {
   const absolutes = [];
 
   for (let i = 0; i < numbers.length; i++) {
@@ -36,7 +36,7 @@ const absoluteValues = function(numbers) {
   return absolutes;
 }
 
-const upperCaseFirstLetters = function(names) {
+ function upperCaseFirstLetters(names) {
   let uppercasedNames = [];
 
   for (let i = 0; i < names.length; i++) {
@@ -46,7 +46,7 @@ const upperCaseFirstLetters = function(names) {
   return uppercasedNames;
 }
 
-const changeToInitials = function(names) {
+ function changeToInitials(names) {
   const initialsList = [];
 
   for (let i = 0; i < names.length; i++) {
@@ -76,7 +76,7 @@ const changeToInitials = function(names) {
   return initialsList;
 }
 
-const doubleOdd = function(numbers) {
+ function doubleOdd(numbers) {
   const answers = [];
 
   for (let i = 0; i < numbers.length; i++) {
@@ -116,7 +116,7 @@ const doubleOdd = function(numbers) {
   return answers;
 }
 
-const add1ToLeft = function(numbers) {
+ function add1ToLeft(numbers) {
   const with1Addeds = [];
   for (let i = 0; i < numbers.length; i++) {
     const stringifiedNumber = numbers[i].toString();
