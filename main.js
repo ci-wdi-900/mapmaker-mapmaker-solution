@@ -8,7 +8,7 @@
   return doubled;
 }
 
- function yelledGreetings(greetings) {
+function yelledGreetings(greetings) {
   const yelled = [];
 
   for (let i = 0; i < greetings.length; i++) {
@@ -18,7 +18,7 @@
   return yelled;
 }
 
- function absoluteValues(numbers) {
+function absoluteValues(numbers) {
   const absolutes = [];
 
   for (let i = 0; i < numbers.length; i++) {
@@ -28,15 +28,23 @@
     } else {
       absolutes.push(number);
     }
-
-    // or, instead of an if/else, we could use Math.abs to get the absolute value:
-    // absolutes.push(Math.abs(numbers[i]));
   }
 
   return absolutes;
 }
 
- function upperCaseFirstLetters(names) {
+// or, instead of an if/else, we could use Math.abs to get the absolute value:
+function absoluteValues2(numbers) {
+  const absolutes = [];
+
+  for (let i = 0; i < numbers.length; i++) {
+    absolutes.push(Math.abs(numbers[i]));
+  }
+
+  return absolutes;
+}
+
+function upperCaseFirstLetters(names) {
   let uppercasedNames = [];
 
   for (let i = 0; i < names.length; i++) {
@@ -46,77 +54,99 @@
   return uppercasedNames;
 }
 
- function changeToInitials(names) {
+// intermediate variables version
+function changeToInitials(names) {
   const initialsList = [];
 
   for (let i = 0; i < names.length; i++) {
-    // Looking for the space version:
     const name = names[i];
     const initial1 = name[0];
     const spaceIndex = name.indexOf(' ');
     const initial2 = name[spaceIndex + 1];
 
     initialsList.push(initial1 + initial2);
-
-    // or, as a crazy one-liner
-    // initialsList.push(names[i][0] + names[i][names[i].indexOf(' ') + 1]);
-
-    // for loop version
-  //   let initials = '';
-    
-  //   for (let i = 0; i < name.length; i++) {
-  //     if (i === 0 || name[i - 1] === ' ') {
-  //       initials = initials + name[i].toUpperCase();
-  //     }
-  //   }
-    
-  //   initialsList.push(initials)
   }
 
   return initialsList;
 }
 
- function doubleOdd(numbers) {
+// with a crazy one-liner instead of intermediate variables
+function changeToInitials2(names) {
+  const initialsList = [];
+
+  for (let i = 0; i < names.length; i++) {
+    initialsList.push(names[i][0] + names[i][names[i].indexOf(' ') + 1]);
+  }
+
+  return initialsList;
+}
+
+// internal for loop version (string building)
+function changeToInitials3(names) {
+  const initialsList = [];
+
+  for (let i = 0; i < names.length; i++) {
+    let initials = '';
+
+    for (let i = 0; i < name.length; i++) {
+      if (i === 0 || name[i - 1] === ' ') {
+        initials = initials + name[i].toUpperCase();
+      }
+    }
+
+    initialsList.push(initials)
+  }
+
+  return initialsList;
+}
+
+// if version
+function doubleOdd(numbers) {
   const answers = [];
 
   for (let i = 0; i < numbers.length; i++) {
-    // if version
     if (numbers[i] % 2 === 1 || numbers[i] % 2 === -1) {
       answers.push(numbers[i] * 2)
     } else {
       answers.push(numbers[i])
     }
-
-    // if and re-assignment version:
-    // let answer = numbers[i];
-    // if (answer % 2 === 1 || answer % 2 === -1) {
-    //   answer = answer * 2;
-    // }
-    //
-    // answers.push(answer);
-
-    // Math.abs (absolute value) version
-    // if (Math.abs(numbers[i]) % 2 === 1) {
-    //   answers.push(numbers[i] * 2);
-    // } else {
-    //   answers.push(numbers[i]);
-    // }
-
-    // ternary version
-    // const answer = numbers[i] % 2 === 1 || numbers[i] % 2 === -1
-    //   ? numbers[i] * 2
-    //   : numbers[i];
-
-
-    // One-line math.abs and ternary version:
-    // answers.push(Math.abs(numbers[i] % 2) === 1 ? numbers[i] * 2 : numbers[i])
-
-  } // closes for loop
+  }
 
   return answers;
 }
 
- function add1ToLeft(numbers) {
+// if and re-assignment version:
+function doubleOdd2(numbers) {
+  const answers = [];
+
+  for (let i = 0; i < numbers.length; i++) {
+    let answer = numbers[i];
+    if (answer % 2 === 1 || answer % 2 === -1) {
+      answer = answer * 2;
+    }
+    
+    answers.push(answer);
+  }
+
+  return answers;
+}
+
+// Math.abs (absolute value) version
+function doubleOdd3(numbers) {
+  const answers = [];
+
+  for (let i = 0; i < numbers.length; i++) {
+    if (Math.abs(numbers[i]) % 2 === 1) {
+      answers.push(numbers[i] * 2);
+    } else {
+      answers.push(numbers[i]);
+    }
+  }
+
+  return answers;
+}
+
+function add1ToLeft(numbers) {
   const with1Addeds = [];
   for (let i = 0; i < numbers.length; i++) {
     const stringifiedNumber = numbers[i].toString();
